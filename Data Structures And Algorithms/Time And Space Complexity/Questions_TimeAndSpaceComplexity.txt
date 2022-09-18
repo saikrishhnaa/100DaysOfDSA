@@ -1,0 +1,397 @@
+criteria of analysis : space and time
+
+func swap(x,y):
+    t = x
+    x = y
+    y = t
+
+time : 3
+space: 3
+
+
+func sum(arr):
+    sum = 0
+    for i in range(len(arr)):
+        sum = sum + arr[i]
+    return sum
+
+time = 1 + n+1 + n + 1 = 2n + 3
+degree of polynomial : O(n)
+
+
+
+func sum2d(mat):
+    sum = 0
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            sum = sum + arr[i][j]
+    return sum
+
+time = 1 + n+1 + n*(m+1) + n*m + 1 = 2mn + 2n + 3
+degree of polynomial : O(mn)
+or if n == m => O(n^2)
+
+
+
+
+time complexity classes:
+    constant O(1)
+    logarithmic O(logn)
+    Linear O(n)
+    Quadratic O(nm) or O(n^2)
+    Cubic O(n^3)
+    Exponential O(a^n)
+
+    1 < logn < root(n) < n < nlogn < n^2 < n^3 < a^n < n^n
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+a = 0
+b = 1
+for i in range(n):
+    a = a + n
+    b = b * n
+ 
+for i in range(m):
+    print(" yo. what is up ")
+ 
+O(n+m)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+for i in range(n):
+    for j in range(n):
+        print("123")
+        print("456")
+ 
+for i in range(2*n):
+    print("ABC")
+ 
+for i in range(2**n):
+    print(i+10)
+ 
+O(n^2 + n + 2^n)
+O(2^n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+for i in range(n):
+    for j in range(n,i,-1):
+        print(1,2,3)
+O(n^2)
+ 
+ 
+
+#when loops are not running constant number of times you need to add the number steps 
+
+for i in range(n):
+    for j in range(i+1,n):
+        print(" op ")
+     
+n-1 + n-2 + n-3 +... 1
+ O(n^2)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+t1 = 10^6 n  + 5000
+t2 = 2**n
+t3 = 4* (2**n)  = O(2^n)
+t4 = 3**n
+which complexity is more optimised?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+while i < n:
+    print(i+3)
+    i +=1
+ 
+ 
+i=1
+while i < n:
+    print(i+3)
+    i *=2
+ 
+
+2^k = n
+k = logn
+O(logn)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+i = n
+while i > 0:
+    j = i
+    while j > 0:
+        print(j)
+        j-=1
+    i/=2
+ 
+n + n/2  +n/4 ....+1
+2n
+O(n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+i = 1
+for j in range(n):
+    i*=2
+    if i > n:
+        break
+ 
+if i 1 : O(logn)
+if i 0  : O(n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+fn = fn-1 + fn-2
+f1 = f0 = 1
+
+def f(n):
+    if n == 0 or n==1:
+        return 1
+    return f(n-1) + f(n-2)
+O(2^n)
+
+def f(n):
+    if n = 0:
+        return 1
+    f(n-1)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+def f(n):
+    if n == 0:
+        return 1
+    return f(n/2)
+ 
+ 
+ 
+def f(n):
+    if n == 0:
+        return 1
+    for i in range(n):
+        print(i**2)
+    return f(n/2)
+ 
+fn fn/2 fn/4 ... f0
+n + n/2 + n/4 +.... + 1
+2n
+O(n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+def f(n):
+    if n%2 == 0 or n < 2:
+        return 1
+    return f(n-1)+f(n-2)
+ 
+O(n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+arr = input()
+for i in range(len(arr)):
+    if arr[i] %2 == 0:
+        break
+    i*=2
+ 
+O(n)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+def gcd(a, b): 
+ 
+    if (a == 0): 
+        return b 
+    if (b == 0): 
+        return a 
+ 
+    if (a == b): 
+        return a 
+ 
+    if (a > b): 
+        return gcd(a-b, b) 
+    return gcd(a, b-a)

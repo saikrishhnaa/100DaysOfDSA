@@ -44,8 +44,6 @@ class Solution {
             digits.add(i, val);
             i++;
         }
-        if(digits.size() == 1 && x < 0)
-            return false;
         for(int j = 0, k = digits.size() - 1; j < k; j++, k--) {
             if(digits.get(j) != digits.get(k)) {
                 return false;

@@ -41,7 +41,7 @@ class Solution
             if(nums[i] % 2 == 0)
             {
                 int num = nums[i]; 
-                int numCount = 0;
+                int numCount = 1;
                 for(int j = i + 1; j < nums.length; j++)
                 {
                     if(nums[j] == num)

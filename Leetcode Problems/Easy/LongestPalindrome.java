@@ -41,7 +41,7 @@ class Solution {
             {
                 if(charList.get(i) == charList.get(j))
                 {
-                    charList.remove((Character)s.charAt(j));
+                    charList.remove(j);
                     strLength += 2;
                     break;
                 }

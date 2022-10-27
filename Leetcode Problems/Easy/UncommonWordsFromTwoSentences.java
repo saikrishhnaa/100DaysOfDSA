@@ -38,13 +38,15 @@ class Solution
         {
             for(int j = 0; j < s3Words.length; j++)
             {
-                if(i != j && s3Words[i] == s3Words[j])
+                if(i != j && s3Words[i].equals(s3Words[j]))
                     break;
                 
                 if(j == s3Words.length - 1)
-                    uncommonWords = s3Words[i] + " ";
+                    uncommonWords += s3Words[i] + " ";
             }
         }
+        if(uncommonWords.length() == 0)
+            return new String[0];
         return uncommonWords.split(" ");
     }
 }

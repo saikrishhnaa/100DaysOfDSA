@@ -46,6 +46,11 @@ class Solution {
             char ch = pattern.charAt(i);
             if(!patternMap.containsKey(ch))
             {
+                for(String words : patternMap.values())
+                {
+                    if(words.equals(sWords[i]))
+                        return false;
+                }
                 patternMap.put(ch, sWords[i]);
             }
             else

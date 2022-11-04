@@ -37,26 +37,16 @@ class Solution
 {
     public int maximum69Number (int num) 
     {
-        int number = num;
-        int value1 = 1;
-        int mul = 1;
-        
-        while(number != 0)
+        char[] numArr = Integer.toString(num).toCharArray();
+        for(int i = 0; i < numArr.length; i++)
         {
-            value1 *= mul;
-            number /= 10;
-            mul *= 10;
+            if(numArr[i] == '6')
+            {   
+                numArr[i] = '9';
+                break;
+            }
         }
-        
-        number = num;
-        
-        while((number - (6 * value1)) > value1)
-        {
-            number -= (6 * value1);
-            value1 /= 10;
-        }
-        
-        return num + (9 * number);
+        return Integer.parseInt(new String(numArr));
     }
 }
 

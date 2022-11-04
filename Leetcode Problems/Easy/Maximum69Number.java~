@@ -1,65 +1,62 @@
 /*
 Description:
 
-Given a pattern and a string s, find if s follows the same pattern.
+You are given a positive integer num consisting only of digits 6 and 9.
 
-Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.
-
- 
+Return the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).
 
 Example 1:
 
-Input: pattern = "abba", s = "dog cat cat dog"
-Output: true
+Input: num = 9669
+Output: 9969
+Explanation: 
+Changing the first digit results in 6669.
+Changing the second digit results in 9969.
+Changing the third digit results in 9699.
+Changing the fourth digit results in 9666.
+The maximum number is 9969.
 Example 2:
 
-Input: pattern = "abba", s = "dog cat cat fish"
-Output: false
+Input: num = 9996
+Output: 9999
+Explanation: Changing the last digit 6 to 9 results in the maximum number.
 Example 3:
 
-Input: pattern = "aaaa", s = "dog cat cat dog"
-Output: false
+Input: num = 9999
+Output: 9999
+Explanation: It is better not to apply any change.
  
 
 Constraints:
 
-1 <= pattern.length <= 300
-pattern contains only lower-case English letters.
-1 <= s.length <= 3000
-s contains only lowercase English letters and spaces ' '.
-s does not contain any leading or trailing spaces.
-All the words in s are separated by a single space.
+1 <= num <= 104
+num consists of only 6 and 9 digits.
 */
 
-import java.util.Map;
-import java.util.HashMap;
-
-class Solution {
-    public boolean wordPattern(String pattern, String s) {
-        Map<Character, String> patternMap = new HashMap<Character, String>();
-        String[] sWords = s.split(" ");
-        int sWordsLen = sWords.length;
-        if(sWordsLen != pattern.length())
-            return false;
-        for(int i = 0; i < sWordsLen; i++)
+class Solution 
+{
+    public int maximum69Number (int num) 
+    {
+        int number = num;
+        int value1 = 1;
+        int mul = 1;
+        
+        while(number != 0)
         {
-            char ch = pattern.charAt(i);
-            if(!patternMap.containsKey(ch))
-            {
-                for(String words : patternMap.values())
-                {
-                    if(words.equals(sWords[i]))
-                        return false;
-                }
-                patternMap.put(ch, sWords[i]);
-            }
-            else
-            {
-                if(!patternMap.get(ch).equals(sWords[i]))
-                    return false;
-            }
+            value1 *= mul;
+            number /= 10;
+            mul *= 10;
         }
-        return true;
+        
+        number = num;
+        
+        while((number - (6 * value1)) > value1)
+        {
+            number -= (6 * value1);
+            value1 /= 10;
+        }
+        
+        return num + (9 * number);
     }
 }
 

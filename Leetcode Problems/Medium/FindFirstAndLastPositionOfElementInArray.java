@@ -35,42 +35,36 @@ class Solution
         int numsLen = nums.length;
         int start = 0;
         int end = numsLen - 1;
-        int result[] = new int[2];
+        int result[] = new int[] { -1, -1 };
         while(start <= end)
         {
             int mid = start + (end - start) / 2;
             if(nums[mid] == target)
             {
-                if((mid - 1) >= 0 && nums[mid - 1] == target)
-                    result[0] = mid - 1;
-                else 
-                    result[0] = mid;
+                result[0] = mid;
+                result[1] = mid;
+                for(int i = mid - 1; i >= 0; i--)
+                {
+                    if(nums[i] != target) 
+                    {
+                        result[0] = i + 1;
+                        break;
+                    }
+                    else if(i == 0)
+                        result[0] = 0;
+                }
                 
-                if((mid + 1) < numsLen && nums[mid + 1] == target)
-                    result[1] = mid + 1;
-                else 
-                    result[1] = mid;
-//                 for(int i = mid - 1; i >= 0; i--)
-//                 {
-//                     if(nums[i] != target) 
-//                     {
-//                         result[0] = i + 1;
-//                         break;
-//                     }
-//                     else if(i == 0)
-//                         result[0] = 0;
-//                 }
-                
-//                 for(int i = mid + 1; i < numsLen; i++)
-//                 {
-//                     if(nums[i] != target) 
-//                     {
-//                         result[1] = i - 1;
-//                         break;
-//                     }
-//                     else if(i == numsLen)
-//                         result[1] = numsLen;
-//                 }
+                for(int i = mid + 1; i < numsLen; i++)
+                {
+                    if(nums[i] != target) 
+                    {
+                        result[1] = i - 1;
+                        break;
+                    }
+                    else if(i == numsLen - 1)
+                        result[1] = numsLen - 1;
+                }
+                break;
             } 
             else if(nums[mid] < target)
             {

@@ -42,20 +42,10 @@ class Solution
         int maxWordsCount = 0;
         for(String sentence : sentences)
         {
-            int wordsCount = 0;
-            for(int i = 0; i < sentence.length(); i++)
-            {
-                if(sentence.charAt(i) == ' ')
-                    wordsCount++;
-            }
-            if(sentence.length() > 0) {
-                wordsCount++;
-                if(wordsCount > maxWordsCount)
-                    maxWordsCount = wordsCount;
-            }
-            
+            int wordsCount = sentence.split(" ").length;
+            if(wordsCount > maxWordsCount)
+                maxWordsCount = wordsCount;
         }
         return maxWordsCount;
     }
 }
-

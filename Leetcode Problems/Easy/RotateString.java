@@ -42,11 +42,7 @@ class Solution
                     {
                         if(s.charAt((++itr) % sLen) != goal.charAt(j))
                         {
-                            if(itr == sLen - 1) {
-                                return false;
-                            }
-                            else
-                                break;
+                            break;
                         }
                         if(j == goalLen - 1)
                             return true;

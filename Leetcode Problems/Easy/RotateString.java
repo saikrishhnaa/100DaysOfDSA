@@ -37,13 +37,14 @@ class Solution
             {
                 if(s.charAt(i) == ch)
                 {    
-
+                    int itr = i;
                     for(int j = 1; j < goalLen; j++)
                     {
-                        if(s.charAt((++i) % sLen) != goal.charAt(j))
+                        if(s.charAt((++itr) % sLen) != goal.charAt(j))
                         {
-                            if(i == sLen - 1)
+                            if(itr == sLen - 1) {
                                 return false;
+                            }
                             else
                                 break;
                         }

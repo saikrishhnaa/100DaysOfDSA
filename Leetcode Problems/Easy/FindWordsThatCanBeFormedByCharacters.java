@@ -33,13 +33,14 @@ class Solution
     public int countCharacters(String[] words, String chars) 
     {
         int charCount = 0;
-        List<Character> charsList = new ArrayList<Character>();
+        List<Character> list = new ArrayList<Character>();
         for(int i = 0; i < chars.length(); i++)
         {
-            charsList.add(chars.charAt(i));
+            list.add(chars.charAt(i));
         }
         for(String word : words)
         {
+            List<Character> charsList = new ArrayList<>(list);
             for(int i = 0; i < word.length(); i++)
             {
                 boolean isCharPresent = false;
@@ -49,13 +50,12 @@ class Solution
                     {
                         isCharPresent = true;
                         charsList.remove((Character)word.charAt(i));
-                        j--;
                         break;
                     }
                 }
                 if(!isCharPresent)
                     break;
-                if(i == word.length())
+                if(i == word.length() - 1)
                     charCount += word.length();
             }
         }

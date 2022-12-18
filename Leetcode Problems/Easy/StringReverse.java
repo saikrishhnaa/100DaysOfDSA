@@ -25,7 +25,7 @@ class Solution
     public void reverseString(char[] s) 
     {
         int size = (s.length - 1) / 2;
-        for(int i = 0, j = s.length - 1; i < size; i++, j--)
+        for(int i = 0, j = s.length - 1; i <= size; i++, j--)
         {
             char temp = s[i];
             s[i] = s[j];

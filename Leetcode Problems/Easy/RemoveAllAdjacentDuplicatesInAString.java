@@ -22,30 +22,21 @@ Constraints:
 s consists of lowercase English letters.
 */
 
-import java.util.List;
-import java.util.ArrayList;
-
 class Solution 
 {
     public String removeDuplicates(String s) {
-        List<Character> charList = new ArrayList<Character>();
-        for(int i = 0; i < s.length(); i++)
+        StringBuilder strBuilder = new StringBuilder(s);
+        for(int i = 0; i < strBuilder.length() - 1; i++)
         {
-            charList.add(s.charAt(i));
-        }
-        for(int i = 0; i < charList.size() - 1; i++)
-        {
-            if(charList.get(i) == charList.get(i+1))
+            if(strBuilder.charAt(i) == strBuilder.charAt(i + 1))
             {
-                charList.remove(i + 1);
-                charList.remove(i);
-                i = -1;
+                strBuilder.deleteCharAt(i + 1);
+                strBuilder.deleteCharAt(i);
+                if(i < 1)
+                    i = -1;
+                else
+                    i -= 2;
             }
-        }
-        StringBuilder strBuilder = new StringBuilder();
-        for(char ch : charList)
-        {
-            strBuilder.append(ch);
         }
         return strBuilder.toString();
     }

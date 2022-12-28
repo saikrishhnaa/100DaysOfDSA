@@ -30,30 +30,34 @@ Constraints:
 s consists of parentheses only '()[]{}'.
 */
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Map;
+import java.util.HashMap;
 
-class Solution {
-    public boolean isValid(String s) {
-        List<Character> openingBrackets = new ArrayList<Character>();
-        for(char c : s.toCharArray()) {
-            int arrLen = openingBrackets.size();
-            if(c == '(' || c == '[' || c == '{')
-                openingBrackets.add(c);
-            else if(arrLen != 0) {
-                if(c == ')' && openingBrackets.get(arrLen - 1) == '(')
-                    openingBrackets.remove(arrLen - 1);
-                else if(c == ']' && openingBrackets.get(arrLen - 1) == '[')
-                    openingBrackets.remove(arrLen - 1);
-                else if(c == '}' && openingBrackets.get(arrLen - 1) == '{')
-                    openingBrackets.remove(arrLen - 1);
-                else 
+class Solution 
+{
+    public boolean isValid(String s) 
+    {
+        Map<Character, Character> bracketsMap = new HashMap<Character, Character>
+        ();
+        bracketsMap.put('(', ')');
+        bracketsMap.put('{', '}');
+        bracketsMap.put('[', ']');
+        Stack<Character> charStack = new Stack<Character>();
+        for(int i = 0; i < s.length(); i++)
+        {
+            char ch = s.charAt(i);
+            if(bracketsMap.containsKey(ch))
+                charStack.push(ch);
+            else {
+                if(charStack.empty())
                     return false;
-            } else {
-                return false;
+                char removedChar = charStack.pop();
+                if(bracketsMap.get(removedChar) != ch)
+                    return false;
             }
         }
-        if(openingBrackets.size() == 0)
+        if(charStack.empty())
             return true;
         return false;
     }

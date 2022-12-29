@@ -52,9 +52,11 @@ class Solution
             else {
                 if(charStack.empty())
                     return false;
-                char removedChar = charStack.pop();
-                if(bracketsMap.get(removedChar) != ch)
+                char charAtTop = charStack.peek();
+                if(bracketsMap.get(charAtTop) != ch)
                     return false;
+                else
+                    charStack.pop();
             }
         }
         if(charStack.empty())
